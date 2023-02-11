@@ -1,0 +1,28 @@
+button,
+input:not([type="range"]) {
+    border-radius: 8px;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 400;
+    font-family: inherit;
+    color: var(--color);
+    background-color: var(--bg);
+    cursor: pointer;
+    transition: border-color 0.25s;
+    box-shadow: var(--bg-shadow) 2px 2px;
+    transition: background-color 0.25s ease-in-out, border-color 0.1s ease-in-out;
+    border: 1px solid transparent;
+}
+
+button:active {
+    border: 1px solid var(--outline);
+}
+
+button:disabled {
+    background-color: var(--disabled);
+}
+
+input:not([type="range"]):focus {
+    outline: none;
+    border: 1px solid var(--outline);
+}
