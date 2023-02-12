@@ -24,11 +24,10 @@
     function calcLeft() {
         const { width } = range.getBoundingClientRect();
 
-        const val = Number.parseFloat(range.value);
         const min = Number.parseFloat(range.min);
         const max = Number.parseFloat(range.max);
 
-        const percentOfRange = (val - min) / (max - min);
+        const percentOfRange = ($value - min) / (max - min);
         const equalizer = percentOfRange * 4 - 2;
 
         valueText.parentElement!.style.setProperty("--left", `${percentOfRange * (width / 1.115) - equalizer - width / 2 + 10}px`);
