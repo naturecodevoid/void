@@ -33,8 +33,10 @@ describe("fitText", () => {
         };
 
         fitText(e.textContent, e.style.fontSize, e as any, 20);
-        // CI has some weird floating point math, which causes this test to fail
-        // output should be 3.5px
-        expect(Number.parseFloat(e.style.fontSize)).within(2.9, 3.5);
+        if (process.env.CI) {
+            console.log("using CI check");
+            // CI has some weird floating point math, which causes this test to fail
+            expect(Number.parseFloat(e.style.fontSize)).within(2.9, 3.5);
+        } else expect(Number.parseFloat(e.style.fontSize)).to.eq(3.5);
     });
 });
