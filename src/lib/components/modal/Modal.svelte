@@ -1,11 +1,12 @@
 <script lang="ts">
     import { onDestroy } from "svelte";
 
-    import { disableBackground, enableBackground, openModals } from ".";
+    import { disableBackground, enableBackground, modalsOpen } from ".";
 
     export let bgColor: string = "var(--bg)";
     export let shadowColor: string = "var(--bg-shadow)";
     export let width: string = "18rem";
+    export let topOnVisible: string = "50%";
 
     let visible = false;
 
@@ -14,23 +15,23 @@
 
         enableBackground();
 
-        openModals.set($openModals + 1);
+        modalsOpen.set($modalsOpen + 1);
         visible = true;
     }
 
     export function hide() {
         if (!visible) return;
 
-        if ($openModals <= 1) disableBackground();
+        if ($modalsOpen <= 1) disableBackground();
 
-        openModals.set($openModals - 1);
+        modalsOpen.set($modalsOpen - 1);
         visible = false;
     }
 
     onDestroy(hide);
 </script>
 
-<div class="modal {visible ? 'visible' : ''}" style="--width: {width}; --bg-color: {bgColor}; --shadow-color: {shadowColor}; --modals-open: {$openModals}">
+<div class="modal {visible ? 'visible' : ''}" style="--width: {width}; --bg-color: {bgColor}; --shadow-color: {shadowColor}; --modals-open: {$modalsOpen}; --top-on-visible: {topOnVisible}">
     <div class="content">
         <slot />
         <button on:click={hide}>Close</button>
@@ -73,6 +74,6 @@
     .visible {
         opacity: 1 !important;
         visibility: visible !important;
-        top: 50% !important;
+        top: var(--top-on-visible) !important;
     }
 </style>

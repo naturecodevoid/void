@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 
-export const openModals = writable(0);
+export const modalsOpen = writable(0);
 
 function enabled() {
     let bgElement = document.querySelector("div#void-modal-background") as HTMLDivElement;
