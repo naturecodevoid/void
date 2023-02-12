@@ -33,8 +33,7 @@ jobs:
               run: |
                   cd package
                   git init
-                  git add --all
-                  git commit -m "build"
+                  git commit -a -m "build"
 
             - name: Push changes
               uses: ad-m/github-push-action@master
