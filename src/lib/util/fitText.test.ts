@@ -34,6 +34,7 @@ describe("fitText", () => {
 
         fitText(e.textContent, e.style.fontSize, e as any, 20);
         // CI has some weird floating point math, which causes this test to fail
-        expect(Math.abs(3.5 - Number.parseFloat(e.style.fontSize))).lessThanOrEqual(0.6);
+        // output should be 3.5px
+        expect(Number.parseFloat(e.style.fontSize)).within(2.9, 3.5);
     });
 });

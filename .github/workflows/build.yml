@@ -24,7 +24,7 @@ jobs:
               run: yarn
 
             - name: Test
-              run: yarn check
+              run: yarn run check
 
             - name: Build
               run: yarn svelte-package
