@@ -1,0 +1,42 @@
+name: Build
+
+on: push
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+
+            - name: Setup node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+
+            - name: Configure git
+              run: |
+                  git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+                  git config --global user.name "github-actions[bot]"
+                  git config --global init.defaultBranch wrangler-build
+
+            - name: Install packages
+              run: npm i
+
+            - name: Build
+              run: npm run ci
+
+            - name: Initialize git repo
+              run: |
+                  cd package
+                  git init
+                  git add --all
+                  git commit -m "build"
+
+            - name: Push changes
+              uses: ad-m/github-push-action@master
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  branch: build
+                  force: true
+                  directory: package

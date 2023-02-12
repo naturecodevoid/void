@@ -5,13 +5,13 @@
     import { fitText } from "$lib/util/fitText";
 
     const outer = document.createElement("div");
-    outer.style.width = "30px";
+    outer.style.width = "20px";
     document.body.appendChild(outer);
 
     const text = document.createElement("span");
     outer.appendChild(text);
 
-    fitText("1234567890", "100px", text, outer);
+    fitText("1234567890", "100px", text, outer.getBoundingClientRect().width);
     */
 
     const input = storage("input-test", "Input");

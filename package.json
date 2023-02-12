@@ -1,28 +1,31 @@
 {
-    "name": "void-sveltelib",
-    "version": "0.0.5",
+    "name": "void",
+    "version": "0.0.6",
     "license": "MIT",
     "author": {
         "name": "naturecodevoid",
         "url": "https://naturecodevoid.dev/"
     },
-    "repository": "github:naturecodevoid/void-sveltelib",
+    "repository": "github:naturecodevoid/void",
     "bugs": {
-        "url": "https://github.com/naturecodevoid/void-sveltelib/issues"
+        "url": "https://github.com/naturecodevoid/void/issues"
     },
     "type": "module",
+    "private": "true",
     "scripts": {
         "dev": "vite dev",
         "test": "vitest",
-        "build": "bun run format && bun run check && vitest --run && svelte-package",
-        "prepublishOnly": "echo 'Did you mean to publish `./package/`, instead of `./`?' && exit 1",
-        "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+        "build": "bun run format && bun run check && svelte-package",
+        "ci": "bun run check && svelte-package",
+        "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && vitest --run",
         "format": "prettier --plugin @trivago/prettier-plugin-sort-imports --plugin prettier-plugin-svelte --config ~/.prettierrc.json ./src --write"
     },
     "peerDependencies": {
+        "sass": "^1.58.0",
         "svelte": "^3.54.0"
     },
     "devDependencies": {
+        "@napi-rs/canvas": "^0.1.34",
         "@sveltejs/adapter-auto": "^2.0.0",
         "@sveltejs/kit": "^1.5.0",
         "@sveltejs/package": "^1.0.0",
@@ -32,7 +35,6 @@
         "sass": "^1.58.0",
         "svelte": "^3.54.0",
         "svelte-check": "^3.0.1",
-        "svelte-preprocess": "^5.0.1",
         "tslib": "^2.4.1",
         "typescript": "^4.9.3",
         "vite": "^4.0.0",
