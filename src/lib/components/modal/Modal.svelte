@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { onDestroy } from "svelte";
+
     import { disableBackground, enableBackground, openModals } from ".";
 
     export let bgColor: string = "var(--bg)";
@@ -6,6 +8,7 @@
     export let width: string = "18rem";
 
     let visible = false;
+
     export function show() {
         if (visible) return;
 
@@ -14,6 +17,7 @@
         openModals.set($openModals + 1);
         visible = true;
     }
+
     export function hide() {
         if (!visible) return;
 
@@ -22,6 +26,8 @@
         openModals.set($openModals - 1);
         visible = false;
     }
+
+    onDestroy(hide);
 </script>
 
 <div class="modal {visible ? 'visible' : ''}" style="--width: {width}; --bg-color: {bgColor}; --shadow-color: {shadowColor}; --modals-open: {$openModals}">
