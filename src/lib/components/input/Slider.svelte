@@ -17,7 +17,7 @@
     });
 
     function updateValueText() {
-        fitText(range.value, "14px", valueText, 23 - 2);
+        fitText($value.toString(), "14px", valueText, 23 - 2);
         calcLeft();
     }
 
