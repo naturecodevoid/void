@@ -16,7 +16,7 @@
         "dev": "vite dev",
         "test": "vitest",
         "build": "bun run format && bun run check && svelte-package",
-        "ci": "bun run check && svelte-package",
+        "ci": "npm run check && svelte-package",
         "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && vitest --run",
         "format": "prettier --plugin @trivago/prettier-plugin-sort-imports --plugin prettier-plugin-svelte --config ~/.prettierrc.json ./src --write"
     },
