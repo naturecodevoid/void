@@ -21,10 +21,13 @@ jobs:
                   git config --global init.defaultBranch wrangler-build
 
             - name: Install packages
-              run: npm i
+              run: yarn
+
+            - name: Test
+              run: yarn check
 
             - name: Build
-              run: npm run ci
+              run: yarn svelte-package
 
             - name: Initialize git repo
               run: |
