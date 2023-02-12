@@ -1,0 +1,48 @@
+button,
+input:not([type="range"]),
+textarea {
+    border-radius: 8px;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 400;
+    font-family: inherit;
+    color: var(--color);
+    background-color: var(--input-bg);
+    cursor: pointer;
+    transition: border-color 0.25s;
+    box-shadow: var(--input-bg-shadow) 2px 2px;
+    transition: border-color 0.1s ease-in-out;
+    border: 1px solid transparent;
+    resize: none;
+    margin-top: 20px;
+    // make sure box shadow doesn't get cut off
+    margin-bottom: 2px;
+    margin-right: 2px;
+}
+
+button:active {
+    border: 1px solid var(--outline);
+}
+
+// if you want the disabled property to change the button to red, add the "allow-disable" class to your button AFTER the page has loaded to prevent the button background color from fading in from black
+// in svelte, you can do this:
+/*
+onMount(() => {
+    setTimeout(() => {
+        buttons.classList.add("allow-disable");
+    }, 0);
+});
+*/
+button.allow-disable {
+    transition: background-color 0.25s ease-in-out, border-color 0.1s ease-in-out;
+}
+
+button.allow-disable:disabled {
+    background-color: var(--disabled);
+}
+
+input:not([type="range"]):focus,
+textarea:focus {
+    outline: none;
+    border: 1px solid var(--outline);
+}

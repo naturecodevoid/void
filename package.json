@@ -1,0 +1,55 @@
+{
+  "name": "void",
+  "version": "0.0.7",
+  "license": "MIT",
+  "author": {
+    "name": "naturecodevoid",
+    "url": "https://naturecodevoid.dev/"
+  },
+  "repository": "github:naturecodevoid/void",
+  "bugs": {
+    "url": "https://github.com/naturecodevoid/void/issues"
+  },
+  "type": "module",
+  "private": "true",
+  "peerDependencies": {
+    "sass": "^1.58.0",
+    "svelte": "^3.54.0"
+  },
+  "devDependencies": {
+    "@napi-rs/canvas": "^0.1.34",
+    "@sveltejs/adapter-auto": "^2.0.0",
+    "@sveltejs/kit": "^1.5.0",
+    "@sveltejs/package": "^1.0.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.0.0",
+    "prettier": "^2.8.4",
+    "prettier-plugin-svelte": "^2.9.0",
+    "sass": "^1.58.0",
+    "svelte": "^3.54.0",
+    "svelte-check": "^3.0.1",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0",
+    "vitest": "^0.28.4"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./components/WithLifecycle.svelte": "./components/WithLifecycle.svelte",
+    "./components": "./components/index.js",
+    "./components/input/Input.svelte": "./components/input/Input.svelte",
+    "./components/input/Slider.svelte": "./components/input/Slider.svelte",
+    "./components/input/index.scss": "./components/input/index.scss",
+    "./components/modal/Modal.svelte": "./components/modal/Modal.svelte",
+    "./components/modal": "./components/modal/index.js",
+    "./index.scss": "./index.scss",
+    ".": "./index.js",
+    "./styles/colors.scss": "./styles/colors.scss",
+    "./styles/text.scss": "./styles/text.scss",
+    "./util/fitText.test": "./util/fitText.test.js",
+    "./util/fitText": "./util/fitText.js",
+    "./util": "./util/index.js",
+    "./util/storage.test": "./util/storage.test.js",
+    "./util/storage": "./util/storage.js"
+  },
+  "svelte": "./index.js"
+}
