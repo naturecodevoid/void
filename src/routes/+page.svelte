@@ -25,3 +25,5 @@
 
 <Input label="Input" value={input} />
 <Input value={input} />
+
+<Input value={input} multiline={true} />

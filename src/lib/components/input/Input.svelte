@@ -3,6 +3,7 @@
 
     export let label: string | null = null;
     export let value: Writable<string>;
+    export let multiline = false;
     export let otherProperties: Record<string, string> = {};
 </script>
 
@@ -10,5 +11,9 @@
     {#if label}
         <p style="margin-block-start: 0px;">{label}</p>
     {/if}
-    <input bind:value={$value} {...otherProperties} />
+    {#if !multiline}
+        <input bind:value={$value} {...otherProperties} />
+    {:else}
+        <textarea bind:value={$value} {...otherProperties} />
+    {/if}
 </div>

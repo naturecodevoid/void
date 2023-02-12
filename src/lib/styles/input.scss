@@ -1,5 +1,6 @@
 button,
-input:not([type="range"]) {
+input:not([type="range"]),
+textarea {
     border-radius: 8px;
     padding: 0.6em 1.2em;
     font-size: 1em;
@@ -12,6 +13,7 @@ input:not([type="range"]) {
     box-shadow: var(--bg-shadow) 2px 2px;
     transition: background-color 0.25s ease-in-out, border-color 0.1s ease-in-out;
     border: 1px solid transparent;
+    resize: none;
 }
 
 button:active {
@@ -22,7 +24,8 @@ button:disabled {
     background-color: var(--disabled);
 }
 
-input:not([type="range"]):focus {
+input:not([type="range"]):focus,
+textarea:focus {
     outline: none;
     border: 1px solid var(--outline);
 }
