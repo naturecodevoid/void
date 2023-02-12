@@ -21,7 +21,7 @@ jobs:
                   git config --global init.defaultBranch wrangler-build
 
             - name: Install packages
-              run: yarn
+              run: npm i
 
             - name: Test
               run: yarn run check
