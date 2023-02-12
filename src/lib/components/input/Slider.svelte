@@ -22,7 +22,8 @@
     }
 
     function calcLeft() {
-        const { width } = range.getBoundingClientRect();
+        let { width } = range.getBoundingClientRect();
+        width -= 20; // thumb diameter. it lines up better if we take away 3 from 23 (original diameter)
 
         const min = Number.parseFloat(range.min);
         const max = Number.parseFloat(range.max);
@@ -30,7 +31,7 @@
         const percentOfRange = ($value - min) / (max - min);
         const equalizer = percentOfRange * 4 - 2;
 
-        valueText.parentElement!.style.setProperty("--left", `${percentOfRange * (width / 1.1155) - equalizer - width / 2 + 10}px`);
+        valueText.parentElement!.style.setProperty("--left", `${percentOfRange * width - equalizer - width / 2}px`);
     }
 </script>
 
@@ -93,6 +94,10 @@
 
         &::-webkit-slider-thumb {
             @include thumb;
+            // chromium is weird
+            position: relative;
+            top: -6px;
+            left: 0px;
         }
         &::-moz-range-thumb {
             @include thumb;
