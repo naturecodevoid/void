@@ -11,7 +11,7 @@ textarea {
     cursor: pointer;
     transition: border-color 0.25s;
     box-shadow: var(--input-bg-shadow) 2px 2px;
-    transition: background-color 0.25s ease-in-out, border-color 0.1s ease-in-out;
+    transition: border-color 0.1s ease-in-out;
     border: 1px solid transparent;
     resize: none;
     margin-top: 20px;
@@ -24,7 +24,20 @@ button:active {
     border: 1px solid var(--outline);
 }
 
-button:disabled {
+// if you want the disabled property to change the button to red, add the "allow-disable" class to your button AFTER the page has loaded to prevent the button background color from fading in from black
+// in svelte, you can do this:
+/*
+onMount(() => {
+    setTimeout(() => {
+        buttons.classList.add("allow-disable");
+    }, 0);
+});
+*/
+button.allow-disable {
+    transition: background-color 0.25s ease-in-out, border-color 0.1s ease-in-out;
+}
+
+button.allow-disable:disabled {
     background-color: var(--disabled);
 }
 
