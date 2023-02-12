@@ -30,7 +30,7 @@
         const percentOfRange = ($value - min) / (max - min);
         const equalizer = percentOfRange * 4 - 2;
 
-        valueText.parentElement!.style.setProperty("--left", `${percentOfRange * (width / 1.115) - equalizer - width / 2 + 10}px`);
+        valueText.parentElement!.style.setProperty("--left", `${percentOfRange * (width / 1.1155) - equalizer - width / 2 + 10}px`);
     }
 </script>
 

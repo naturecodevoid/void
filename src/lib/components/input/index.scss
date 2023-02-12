@@ -7,13 +7,17 @@ textarea {
     font-weight: 400;
     font-family: inherit;
     color: var(--color);
-    background-color: var(--bg);
+    background-color: var(--input-bg);
     cursor: pointer;
     transition: border-color 0.25s;
-    box-shadow: var(--bg-shadow) 2px 2px;
+    box-shadow: var(--input-bg-shadow) 2px 2px;
     transition: background-color 0.25s ease-in-out, border-color 0.1s ease-in-out;
     border: 1px solid transparent;
     resize: none;
+    margin-top: 20px;
+    // make sure box shadow doesn't get cut off
+    margin-bottom: 2px;
+    margin-right: 2px;
 }
 
 button:active {

@@ -1,5 +1,6 @@
 <script lang="ts">
     import { Input, Slider, storage } from "$lib";
+    import Modal from "$lib/components/modal/Modal.svelte";
 
     /*
     import { fitText } from "$lib/util/fitText";
@@ -16,6 +17,8 @@
 
     const input = storage("input-test", "Input");
     const value = storage("value-test", 50);
+
+    let modal: Modal;
 </script>
 
 <button on:click={() => console.log("Button click")}>Button</button>
@@ -27,3 +30,7 @@
 <Input value={input} />
 
 <Input value={input} multiline={true} />
+
+<button on:click={() => modal.show()}>Open Modal</button>
+
+<Modal bind:this={modal}><p>a</p></Modal>
